@@ -169,7 +169,8 @@ bindsym $mod+r mode "resize"
 
 # status bar
 bar {
-        status_command i3status
+    position top
+    status_command i3status
 }
 
 # notifications
