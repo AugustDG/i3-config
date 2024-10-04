@@ -34,7 +34,7 @@ floating_modifier $mod
 bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
 
 # start file manager
-bindsym $mod+e exec --no-startup-id thunar
+bindsym $mod+e exec --no-startup-id xdg-open ~
 
 # kill focused window
 bindsym $mod+q kill
