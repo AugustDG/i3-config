@@ -38,32 +38,35 @@ bindsym $mod+e exec --no-startup-id xdg-open ~
 
 # kill focused window
 bindsym $mod+q kill
-
-# start dmenu (a program launcher)
-# bindsym $mod+d exec --no-startup-id dmenu_run
    
 # A more modern dmenu replacement is rofi:
 bindsym $mod+d exec "rofi run -show combi -combi-modes 'drun,run,window'"
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
-
-# alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+# enables parent-moving
+mode "family" {
+        bindsym Left focus left
+        bindsym Down focus child
+        bindsym Up focus parent
+        bindsym Right focus right
 
-# alternatively, you can use the cursor keys:
+        bindsym Shift+Left move left
+        bindsym Shift+Down move down
+        bindsym Shift+Up move up
+        bindsym Shift+Right move right
+
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+c mode "default"
+}
+bindsym $mod+c mode "family"
+
+# move focused window
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
@@ -74,7 +77,8 @@ bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
 bindsym $mod+w layout tabbed
-bindsym $mod+Shift+w layout toggle split
+bindsym $mod+h split h
+bindsym $mod+v split v
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
